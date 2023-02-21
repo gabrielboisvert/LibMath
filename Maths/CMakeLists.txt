@@ -1,9 +1,13 @@
+cmake_minimum_required(VERSION 3.23)
+set(CMAKE_CXX_STANDARD 20)
+
 # set the project name
 get_filename_component(CURRENT_FOLDER_NAME ${CMAKE_CURRENT_LIST_DIR} NAME)
 set(PROJECT_NAME ${CURRENT_FOLDER_NAME})
 set(SOURCE_FOLDE "src")
 set(INCLUDE_FOLDE "include")
 
+project(${PROJECT_NAME})
 
 ###############################
 #                             #
@@ -38,3 +42,5 @@ source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${HEADER_FILES} ${SOURCE_FIL
 add_library(${PROJECT_NAME} STATIC)
 target_sources(${PROJECT_NAME} PRIVATE ${SOURCE_FILES} ${HEADER_FILES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_INCLUDE_DIR})
+
+set(MATH_INCLUDE_DIR ${TARGET_INCLUDE_DIR})
